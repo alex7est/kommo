@@ -4,7 +4,7 @@ import requests
 import os
 from Gsheets import findValue
 
-load_dotenv()
+load_dotenv("tk.env")
 
 app = Flask(__name__)
 
@@ -48,6 +48,10 @@ def update_lead():
         return jsonify({"message": "Lead updated successfully"}), 200
     else:
         return jsonify({"error": response.json()}), response.status_code
+
+@app.route("/", methods=["HEAD"])
+def update_lead():
+    return jsonify({"message": "Server kept alive"}), 200
 
 if __name__ == "__main__":
     app.run(port=5000)
