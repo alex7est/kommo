@@ -50,7 +50,7 @@ def update_lead():
         return jsonify({"error": response.json()}), response.status_code
 
 @app.route("/", methods=["HEAD"])
-def update_lead():
+def keep_alive():
     return jsonify({"message": "Server kept alive"}), 200
 
 if __name__ == "__main__":
